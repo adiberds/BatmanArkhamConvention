@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batman Arkham Convention</title>
+    <style>
+        body {
+            background-color: #000; 
+            color: #ff9933; 
+            font-family: Arial, sans-serif;
+        }
+       
+        #header {
+            background-image: url('image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 200px; 
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ff9933; 
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        #highlights, #new-section {
+            margin: 20px;
+            padding: 15px;
+            background-color: #222; 
+        }
+
+        h2, h3, p {
+            color: #ff9933; 
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .guest-container {
+            margin: 20px;
+        }
+
+        .guest-item {
+            margin-bottom: 20px;
+        }
+
+        .guest-description {
+            margin-top: 10px;
+            display: none; 
+        }
+
+        .show {
+            display: block; 
+        }
+
+        .toggle-button {
+            cursor: pointer; 
+            color: #ff9933; 
+            text-decoration: underline; 
+        }
+    </style>
+    <script>
+        function toggleDescription(guestId) {
+            var description = document.getElementById(guestId);
+            if (description.style.display === "block") {
+                description.style.display = "none";
+            } else {
+                description.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Guests.html">Guests</a>
+        <a href="NewVrGame.html">New VR Game</a>
+        <a href="events.html">Events</a>
+    </nav>
+    <div class="guest-container">
+        <div class="guest-item">
+            <img class="guest-image" src="kevin-conroy.jpg" alt="Kevin Conroy">
+            <h3>Kevin Conroy</h3>
+            <span class="toggle-button" onclick="toggleDescription('kevin-description')">Show Details</span>
+            <div id="kevin-description" class="guest-description">
+                <p>Starting off with one of our main guests, Kevin Conroy is best known for his iconic role as the voice of Batman/Bruce Wayne in the Batman: Arkham video game series. His deep, gravelly voice brought a sense of gravitas and intensity to the character, making Batman's presence even more formidable in the dark, chaotic world of Arkham Asylum, Arkham City, and Arkham Knight. His booth number is 1 and will be speaking and meeting fans at 1 P.M.</p>
+            </div>
+        </div>
+        <div class="guest-item">
+            <img class="guest-image" src="mark-hamil.jpg" alt="Mark Hamill">
+            <h3>Mark Hamill</h3>
+            <span class="toggle-button" onclick="toggleDescription('mark-description')">Show Details</span>
+            <div id="mark-description" class="guest-description">
+                <p>Mark Hamill voiced The Joker in the Batman: Arkham video game series, delivering a chilling and manic performance that captured the character's chaotic essence. His portrayal is celebrated for adding depth and darkness to the iconic villain, making the Arkham games memorable for fans. His booth number is 2 and will be speaking and meeting fans at 1:30 P.M.</p>
+            </div>
+        </div>
+        <div class="guest-item">
+            <img class="guest-image" src="troy-baker.jpg" alt="Troy Baker">
+            <h3>Troy Baker</h3>
+            <span class="toggle-button" onclick="toggleDescription('troy-description')">Show Details</span>
+            <div id="troy-description" class="guest-description">
+                <p>Troy Baker provided voices for multiple characters in the Batman: Arkham series, including Jason Todd/Red Hood, Two-Face, and Harvey Dent. His versatile performances brought depth and distinct personalities to each character, making them stand out in the game's rich narrative. His booth number is 3 and will be speaking and meeting fans at 2 P.M.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

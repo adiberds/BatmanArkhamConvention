@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batman Arkham Convention Events</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ff9933;
+            font-family: Arial, sans-serif;
+        }
+
+        #header {
+            background-image: url('image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ff9933;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        h2, h3, p {
+            color: #ff9933;
+        }
+
+        .Events-container {
+            margin: 20px;
+        }
+
+        .Events-item {
+            margin-bottom: 20px;
+        }
+
+        .Events-description {
+            margin-top: 10px;
+            display: none;
+        }
+
+        button {
+            background-color: #ff9933;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #registered-events {
+            margin: 20px 0;
+        }
+
+        .toggle-button {
+            cursor: pointer;
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        .Events-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        let registeredEvents = [];
+
+        function toggleDescription(eventId) {
+            const description = document.getElementById(eventId);
+            if (description.style.display === "block") {
+                description.style.display = "none";
+            } else {
+                description.style.display = "block";
+            }
+        }
+
+        function registerEvent(eventName) {
+            if (!registeredEvents.includes(eventName)) {
+                registeredEvents.push(eventName);
+                updateRegisteredEvents();
+            }
+        }
+
+        function unregisterAll() {
+            registeredEvents = [];
+            updateRegisteredEvents();
+        }
+
+        function updateRegisteredEvents() {
+            const eventDiv = document.getElementById('registered-events');
+            if (registeredEvents.length === 0) {
+                eventDiv.innerHTML = '<p>You haven\'t signed up for any events yet.</p>';
+            } else {
+                eventDiv.innerHTML = '<ul>' + registeredEvents.map(event => '<li>' + event + '</li>').join('') + '</ul>';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="header"></div>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Guests.html">Guests</a>
+        <a href="NewVrGame.html">New VR Game</a>
+        <a href="events.html">Events</a>
+    </nav>
+
+    <h2>Schedule of Events</h2>
+    <div class="Events-container">
+        <div class="Events-item">
+            <img class="Events-image" src="high-combo.jpg" alt="Highest Combo Competition">
+            <h3 class="toggle-button" onclick="toggleDescription('highest-combo')">Highest Combo Competition (2:30 P.M.)</h3>
+            <div id="highest-combo" class="Events-description">
+                <p>Test your combat skills in the Arkham game series by achieving the highest combo in a single fight! The player with the highest uninterrupted combo wins, proving their mastery of Batman’s combat style.</p>
+                <button onclick="registerEvent('Highest Combo Competition')">Register</button>
+            </div>
+        </div>
+        <div class="Events-item">
+            <img class="Events-image" src="cosplay-contest.jpg" alt="Cosplay Competition">
+            <h3 class="toggle-button" onclick="toggleDescription('cosplay-contest')">Cosplay Competition (4:30 P.M.)</h3>
+            <div id="cosplay-contest" class="Events-description">
+                <p>Show off your costume design by portraying your favorite Arkham universe character! Judges will evaluate creativity, craftsmanship, and resemblance.</p>
+                <button onclick="registerEvent('Cosplay Competition')">Register</button>
+            </div>
+        </div>
+        <div class="Events-item">
+            <img class="Events-image" src="gadget-display.jpg" alt="Real-Life Arkham Gadget Display">
+            <h3 class="toggle-button" onclick="toggleDescription('gadget-display')">Real-Life Arkham Gadget Display (6:30 P.M.)</h3>
+            <div id="gadget-display" class="Events-description">
+                <p>Explore real-life replicas of Batman’s gadgets! Witness creativity and engineering in action with tools like the grappling hook and batarangs brought to life.</p>
+                <button onclick="registerEvent('Real-Life Arkham Gadget Display')">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Your Registered Events</h2>
+    <div id="registered-events">
+        <p>You haven't signed up for any events yet.</p>
+    </div>
+    
+    <button onclick="unregisterAll()">Unregister For All Events</button>
+
+</body>
+</html>
